@@ -12,7 +12,7 @@ import { MdHistory } from "react-icons/md";
 import { MdSecurity } from "react-icons/md";
 import { MdHelpOutline } from "react-icons/md";
 
-import { NavLink } from "react-router-dom";
+
 
 
 interface SidebarItem {
@@ -73,12 +73,10 @@ function Leftbar() {
             className="sidebar-item"
           >
             
-            <NavLink to={item.path}
-              className={({ isActive}) => isActive ? "sidebar-btn active" : "sidebar-btn"}
-            >
+            <button className="sidebar-btn">
              <Icon size={18} />
             <span>{item.label}</span>
-            </NavLink>
+            </button>
           </div>
         );
       })}
