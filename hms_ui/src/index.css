@@ -1,55 +1,57 @@
 
-.Admin_profile{
-  display: flex;
-  align-items: center;
-  gap: 10px;
+nav {
+    width: 220px;
+    height: 100vh;
+    background-color: #f3f4f6;
+    padding: 20px;
+    border-right: 1px solid #1e4ed8;
+    
 }
 
-.Admin_profile img{
+nav h3 {
+
+    color: #1e4ed8;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+}
+
+nav div.profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+
+nav div.profile img {
     width: 40px;
     height: 40px;
     border-radius: 50%;
 }
 
-.Admin_profile div{
-    display: flex;
-    flex-direction: column;
+nav div.profile span {
+    display: block;
+    font-size: 12px;
 }
 
-/*side bar button*/
-.sidebar-btn{
-    background: none;
-    border: none;
-    outline: none;
-    cursor: pointer;
-
+button.sidebar-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-
     width: 100%;
-    text-align: left;
-    padding: 0px;
-    color: #9ca3af;
+    background: none;
+    border: none;
+    padding: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+    
 }
 
-.sidebar-btn:hover{
-    background-color: rgba(30, 78, 216, 0.08);
+button.sidebar-btn:hover {
+    background-color: #184ed8;
 }
-
-.sidebar-btn.active{
-    background-color: rgba(30, 78, 216, 0.16);
-    color: #1e4ed8;
-}
-
-.sidebar-btn.active svg{
-    color: #1e4ed8;
-}
-
-/*nav bar*/
-nav{
-    width: 240px;
-    border-right: 1px solid #1e4ed8;
-    height: 100vh;
-}
-

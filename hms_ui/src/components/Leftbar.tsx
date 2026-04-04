@@ -1,117 +1,89 @@
+import { useNavigate } from "react-router-dom";
 import type { IconType } from "react-icons";
-import { MdDashboard } from "react-icons/md";
-import { FaBed } from "react-icons/fa";
-import { HiOutlineDocumentReport } from "react-icons/hi";
-import { MdPayments } from "react-icons/md";
-import { FaCalendarCheck } from "react-icons/fa";
-import { FaCommentDots } from "react-icons/fa";
-import { FaBox } from "react-icons/fa";
 
-import { MdSettings } from "react-icons/md";
-import { MdHistory } from "react-icons/md";
-import { MdSecurity } from "react-icons/md";
-import { MdHelpOutline } from "react-icons/md";
+//Icons
+import { MdDashboard, MdPayments, MdSettings } from "react-icons/md";
+import { FaBed, FaCalendarCheck } from "react-icons/fa";
 
-
-
-
+//Types
 interface SidebarItem {
-  label: string;
-  icon: IconType;
-  path: string;
+    label: string;
+    icon: IconType;
+    path: string;
 }
 
-function Leftbar() {
+//component
+ function Leftbar() {
+    const navigate = useNavigate();
 
-  const items: SidebarItem[] = [
-    { label: "Overview", icon: MdDashboard, path: "/overview" },
-    { label: "Rooms", icon: FaBed, path: "/rooms" },
-    { label: "Reports", icon: HiOutlineDocumentReport, path: "/reports" },
-    { label: "Payments", icon: MdPayments, path: "/payments" },
-    { label: "Reservations", icon: FaCalendarCheck, path: "/reservations" },
-    { label: "Comments", icon: FaCommentDots , path: "/comments"},
-    { label: "Inventory", icon: FaBox, path: "/inventory"}
-  ];
+    //Dashboard items
+    const dashboardItems: SidebarItem[] = [
+        {label: "Overview", icon: MdDashboard, path: "/overview"},
+        {label: "Rooms", icon: FaBed, path: "/rooms"},
+        {label: "Payments", icon: MdPayments, path: "/payments"},
+        {label: "Reservations", icon: FaCalendarCheck, path: "/reservations"},
+    ];
 
-  const settingsItem: SidebarItem[] = [
-    {label:"System configuration", icon: MdSettings, path: "/settings"},
-    {label:"Activity Log", icon: MdHistory, path: "/history"},
-    {label:"Permissions", icon: MdSecurity, path: "/security"},
-    {label:"Help", icon: MdHelpOutline, path: "/help"}
-  ];
+    const settingsItems: SidebarItem[] = [
+        {label: "Settings", icon: MdSettings, path: "/settings"},
+    ];
 
-  return (
-
-    <nav>
-
-      <div className="Admin_profile">
-        <img src="src/assets/avatar.jpeg" alt="profile-pic" />
-
-        <div>
-        <span>KYANDIGA</span><br />
-        <span style={{color: "#1e4ed8"}}>SYSTEM-ADMIN</span>
-        </div>
-
-      </div>
-
-      <h3 style={{color: "#1e4ed8"}}>DASHBOARDS</h3>
-
-      {items.map(function(item, index) {
-
-        const Icon = item.icon;
-
-        return (
-          <div
-            key={index}
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              padding: "8px"
-            }}
-
-            className="sidebar-item"
-          >
-            
-            <button className="sidebar-btn">
-             <Icon size={18} />
-            <span>{item.label}</span>
-            </button>
-          </div>
-        );
-      })}
-
-
-      <h3 style={{color: "#1e4ed8"}}> SETTINGS</h3>
-
-        {settingsItem.map(function(item, index) {
-
-          const Icon = item.icon;
-
-          return(
-
-            <div key={index} style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              padding: "8px"
-            }}
-            className="sidebar-item"
-            >
-
-              <button className="sidebar-btn">
-               <Icon size={18} />
-              <span>{item.label}</span>
-              </button>
+    return(
+        <nav>
+            {/*PROFILE*/}
+            <div className="profile">
+                <img src="src/assets/profilepic.jpeg" alt="profile-pic" />
+                <div>
+                    <span>CUSTODIAN</span>
+                    <span>SYSTEM-ADMIN</span>
+                </div>
             </div>
 
-          );
-        }
-        )}
+            {/*DASHBOARD SECTION*/}
 
-    </nav>
+            <div>
+                <h3>DASHBOARDS</h3>
 
-  );
-}
+                {dashboardItems.map((item, index) => {
+                    const Icon = item.icon;
 
-export default Leftbar
+                    return(
+                        <button 
+                        key={index}
+                        className="sidebar-btn"
+                        onClick={() => navigate(item.path)}
+                        >
+                        <Icon />
+                        <span>{item.label}</span>
+                        </button>
+                    );
+                })}
+            </div>
+
+            {/*SETTINGS SECTION*/}
+
+            <div>
+                <h3>SETTINGS</h3>
+
+                {settingsItems.map((item, index) => {
+                    const Icon = item.icon;
+
+                    return(
+                        <button
+                        key={index}
+                        className="sidebar-btn"
+                        onClick={() => navigate(item.path)}
+                        >
+                        <Icon />
+                        <span>{item.label}</span>
+                        </button>
+                    );
+
+                })}
+            </div>
+        </nav>
+    );
+ }
+
+
+ export default Leftbar
