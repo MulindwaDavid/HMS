@@ -55,3 +55,73 @@ button.sidebar-btn {
 button.sidebar-btn:hover {
     background-color: #184ed8;
 }
+
+
+
+/* RIGHT BAR STYLING*/
+.layout {
+    display: flex;
+}
+
+.main-content{
+    flex: 1;
+}
+
+
+.rightbar {
+    width: 300px;
+    height: 100vh;
+    overflow-y: auto;
+    border-left: 3px solid #1e4ed8;
+    padding: 20px;
+    gap: 25px;
+}
+
+/*section headings*/
+.rightbar h3 {
+    font-size: 14px;
+    color: #1e4ed8;
+    margin-bottom: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+/* individual sections (cards)*/
+
+.rightbar > div {
+    background: #f9fafb;
+    padding: 10px 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+
+}
+
+/* Comments styling */
+.rightbar .comment {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.rightbar .comment img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+ .rightbar .image-persona {
+    display: flex;
+    gap: 10px;
+ }
+
+.rightbar .divider{
+    height: 1px;
+    background-color: #1e4ed8;
+    margin: 15px 0;
+    border-radius: 1px;
+}
+
+
+
+
+
