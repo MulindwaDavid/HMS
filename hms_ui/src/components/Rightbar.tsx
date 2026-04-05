@@ -1,3 +1,4 @@
+import { MdError, MdWarning, MdInfo } from "react-icons/md";
 
 function Rightbar() {
     //Data
@@ -36,9 +37,18 @@ function Rightbar() {
 
         //system alerts (critical issues)
         const alerts = [
-            {message: "Multiple failed login attempts"},
-            {message: "Payment gateway connection failed"},
-            {message: "System backup failed"},
+            {message: "Multiple failed login attempts",
+             icon: MdWarning,   
+             type: "warning",
+            },
+            {message: "Payment gateway connection failed",
+             icon: MdError,
+             type: "error",
+            },
+            {message: "System backup failed",
+             icon: MdError,
+             type: "error",
+            },
         ];
 
 
@@ -50,11 +60,15 @@ function Rightbar() {
 
             <div>
                 <h3>NOTIFICATIONS</h3>
+                <ul className="notification-list">
                 {notifications.map((item,index) => {
                     return(
-                        <p key={index}>{item.message}</p>
+                        
+                        <li key={index}>{item.message}</li>
+                        
                     );
                 })}
+                </ul>
             </div>
             <div className="divider"/>
 
@@ -63,7 +77,7 @@ function Rightbar() {
                 <h3>COMMENTS</h3>
                 {comments.map((comment, index) => {
                     return(
-                        <div key={index}>
+                        <div key={index} className="entity">
 
                         <div className="image-persona">
                             
@@ -81,7 +95,7 @@ function Rightbar() {
                         </div>
 
 
-                             <div className="comment-info">
+                             <div className="message">
                                 <p>{comment.message}</p>
                              </div>
                         </div>                   
@@ -93,9 +107,20 @@ function Rightbar() {
             {/* SYSTEM ALERTS*/}
             <div>
                 <h3>SYSTEM ALERTS</h3>
+
+
+
                 {alerts.map((alert, index) => {
+                    const Icon = alert.icon;
+
                     return(
-                        <p key={index}>{alert.message}</p>
+                        <div key={index}>
+                            <div className="alert-item">
+                                <Icon size={18}/>
+                                <span>{alert.message}</span>                            
+                            </div>
+                        
+                        </div>
                     );
                 })}
             </div>

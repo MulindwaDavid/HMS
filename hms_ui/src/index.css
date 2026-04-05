@@ -63,10 +63,6 @@ button.sidebar-btn:hover {
     display: flex;
 }
 
-.main-content{
-    flex: 1;
-}
-
 
 .rightbar {
     width: 300px;
@@ -75,6 +71,7 @@ button.sidebar-btn:hover {
     border-left: 3px solid #1e4ed8;
     padding: 20px;
     gap: 25px;
+    
 }
 
 /*section headings*/
@@ -101,6 +98,17 @@ button.sidebar-btn:hover {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    
+}
+
+.rightbar .entity {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.rightbar .entity:hover{
+    background-color: rgba(30, 78, 216, 0.1);
+    border-radius: 8px;
 }
 
 .rightbar .comment img {
@@ -112,6 +120,7 @@ button.sidebar-btn:hover {
  .rightbar .image-persona {
     display: flex;
     gap: 10px;
+    align-items: center;
  }
 
 .rightbar .divider{
@@ -121,7 +130,96 @@ button.sidebar-btn:hover {
     border-radius: 1px;
 }
 
+ .rightbar .message {
+    color: #555555;
+    font-size: 12px;
+ }
+
+/* NOTIFICATIONS*/
+.rightbar .notification-list li {
+    color: #555555;
+    font-size: 13px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.rightbar .notification-list li::marker{
+    color: #1e4ed8;  /*bullet color*/
+}
+
+.rightbar .notification-list li:hover {
+    background-color: rgba(30, 78, 216, 0.1);
+    border-radius: 8px;
+}
+
+.rightbar .notification-list{
+    padding-left: 20px;  /*space for bullets*/
+}
+
+/*SYSTEM ALERTS*/
+.rightbar .alert-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: #b91c1c;   /*Red color for warning*/
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.rightbar .alert-item:hover{
+    background-color: rgba(30, 78, 216, 0.1);
+    border-radius: 8px;
+}
 
 
+/*=========================================TOP-BAR=========================================*/
+
+.topbar {
+    height: 60px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #1e4ed8;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 20px;
+}
+
+.topbar-left,
+.topbar-center,
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/*search bar*/
+.topbar-center {
+    flex: 1;
+    justify-content: center;
+}
+
+.topbar-center input{
+    width: 300px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #1e4ed8;
+}
 
 
+/*=========================Main Content Layout=================================*/
+.main-content{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-content{
+    flex: 1;
+    padding: 20px;
+    background-color: #f9fafb;
+}
