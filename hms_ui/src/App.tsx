@@ -3,26 +3,17 @@ import Leftbar from "./components/Leftbar";
 import Rightbar from "./components/Rightbar";
 import Topbar from "./components/Topbar";
 
-//pages
-function Overview(){
-  return <h2>Overview</h2>;
-}
+import Overview from "./Pages/Overview";
+import Tenants from "./Pages/Tenants";
+import Log from "./Pages/Log";
+import Permissions from "./Pages/Permissions";
+import Help from "./Pages/Help";
+import Rooms from "./Pages/Rooms";
+import Payments from "./Pages/Payments";
+import Reservations from "./Pages/Reservations";
+import Settings from "./Pages/Settings";
 
-function Rooms() {
-  return <h2>Rooms</h2>;
-}
 
-function Payments() {
-  return <h2>Payments</h2>;
-}
-
-function Reservations() {
-  return <h2>Reservations</h2>;
-}
-
-function Settings() {
-  return <h2>Settings</h2>;
-}
 
 
 function App() {
@@ -41,10 +32,14 @@ function App() {
             {/*Routes will go here*/}
             <Routes>
               <Route path="/overview" element={<Overview />} />
+              <Route path="/tenants"  element={<Tenants />} />
               <Route path="/rooms" element={<Rooms />} />
               <Route path="/payments" element={<Payments />} />
               <Route path="/reservations" element={<Reservations />} />
               <Route path="/settings" element={<Settings />} />
+              <Route path="/activity-log" element={<Log />} />
+              <Route path="/permissions" element={<Permissions />} />
+              <Route path="/help" element={<Help />} />
               <Route path="/" element={<Overview />} />  //the app opens on overview
 
             </Routes>

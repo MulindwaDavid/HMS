@@ -4,7 +4,7 @@ nav {
     height: 100vh;
     background-color: #f3f4f6;
     padding: 20px;
-    border-right: 1px solid #1e4ed8;
+    border-right: 3px solid #1e4ed8;
     
 }
 
@@ -37,28 +37,35 @@ nav div.profile span {
     font-size: 12px;
 }
 
-button.sidebar-btn {
+/*Buttons*/
+
+.sidebar-btn {
     display: flex;
     align-items: center;
     gap: 10px;
-    width: 100%;
-    background: none;
-    border: none;
     padding: 8px;
-    font-size: 14px;
-    cursor: pointer;
+    text-decoration: none;
+    color: black;
     border-radius: 6px;
+    font-size: 14px;
     transition: background-color 0.2s ease;
-    
 }
 
-button.sidebar-btn:hover {
-    background-color: #184ed8;
+/*hover*/
+.sidebar-btn:hover{
+    background-color: rgba(30, 78, 216, 0.1);
+}
+
+/* Active */
+.sidebar-btn.active{
+    background-color: rgba(30, 78, 216, 0.2);
+    color: #1e4ed8;
+    font-weight: 600;
 }
 
 
 
-/* RIGHT BAR STYLING*/
+/* ================================== RIGHT BAR STYLING ================================*/
 .layout {
     display: flex;
 }
@@ -86,7 +93,7 @@ button.sidebar-btn:hover {
 /* individual sections (cards)*/
 
 .rightbar > div {
-    background: #f9fafb;
+    background: #f3f4f6;
     padding: 10px 15px;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -221,5 +228,76 @@ button.sidebar-btn:hover {
 .page-content{
     flex: 1;
     padding: 20px;
-    background-color: #f9fafb;
+    background-color: #ffffff;
+}
+
+
+/*============================ Overview Page ====================================*/
+.overview {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* section 1: grid*/
+.stats-section {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+/* section 2: chart */
+.chart-section {
+    width: 100%;
+}
+
+/* section 3: table */
+.table-section {
+    width: 100%;
+}
+
+/* card styling */
+.card {
+    background: #f3f4f6;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* chart placeholder (temporary) */
+.chart-placeholder {
+    height: 200px;
+    background: #f4f5f6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+th {
+    font-size: 14px;
+    color: #1e4ed8
+}
+
+.overview h2{
+    color: #1e4ed8;
+    font-size: 14px;
+}
+
+td{
+    font-size: 13px;
+    color: black;
 }
