@@ -1,18 +1,11 @@
-import { MdArrowBack, MdArrowForward, MdNotifications, MdDarkMode, MdRefresh } from "react-icons/md";
+import { MdNotifications, MdDarkMode, MdRefresh } from "react-icons/md";
+
 
 
 function Topbar() {
-
-
+      
     return(
-        <div className="topbar">
-
-            {/*LEFT: Navigation arrows*/}
-
-            <div className="topbar-left">
-                <MdArrowBack size={20} />
-                <MdArrowForward size={20} />
-            </div>
+        <div className="topbar">     
 
             {/*CENTER: Search */}
 

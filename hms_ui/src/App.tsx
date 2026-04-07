@@ -12,6 +12,7 @@ import Rooms from "./Pages/Rooms";
 import Payments from "./Pages/Payments";
 import Reservations from "./Pages/Reservations";
 import Settings from "./Pages/Settings";
+import Maintenance from "./Pages/Maintenance";
 
 
 
@@ -40,6 +41,7 @@ function App() {
               <Route path="/activity-log" element={<Log />} />
               <Route path="/permissions" element={<Permissions />} />
               <Route path="/help" element={<Help />} />
+              <Route path="/maintenance" element={<Maintenance />} />
               <Route path="/" element={<Overview />} />  //the app opens on overview
 
             </Routes>

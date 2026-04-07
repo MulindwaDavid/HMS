@@ -301,3 +301,13 @@ td{
     font-size: 13px;
     color: black;
 }
+/* ===================stats-section ================*/
+.stat-card {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover{
+    background-color: rgba(30, 78, 216, 0.1);
+    transform: translateY(-2px);
+}

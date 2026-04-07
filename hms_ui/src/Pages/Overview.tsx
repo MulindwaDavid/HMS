@@ -1,20 +1,78 @@
+import { useNavigate } from "react-router-dom";
+import { MdPeople, MdPayments, MdBuild } from "react-icons/md";
+import { FaBed } from "react-icons/fa";
+
+//Data structures for cards
+
+const stats = [
+    {
+        title: "Total Tenants",
+        value: 128,
+        sub: "+12 new tenants",
+        icon: MdPeople,
+        path: "/tenants",
+    },
+
+    {
+        title: "Rooms",
+        value: 40,
+        sub: "+5 new rooms",
+        icon: FaBed,
+        path: "/rooms",
+    },
+
+    {
+        title: "Payments",
+        value: "UGX 12.5M",
+        sub: "+3 pending",
+        icon: MdPayments,
+        path: "/payments",
+    },
+
+    {
+        title: "Maintenance",
+        value: 5,
+        sub: "pending tasks",
+        icon: MdBuild,
+        path: "/maintenance",
+    },
+];
+
 
 
 function Overview(){
 
+    const navigate = useNavigate();
 
+  
     return(
         <div className="overview">
-            
-            {/* ===== SECTION 1: STATS ===== */}
-            <div className="stats-section">
-                <div className="card">Total Tenants</div>
-                <div className="card">Rooms</div>
-                <div className="card">Payments</div>
-                <div className="card">Maintenance</div>
-            </div>
 
+            {/* ===== SECTION 1: STATS SECTION ===== */}
 
+              <div className="stats-section">
+        {stats.map((item, index) =>{
+            const Icon = item.icon;
+
+            return(
+                <div 
+                className="card stat-card"
+                key={index}
+                onClick={() => navigate(item.path)}
+                >
+                    <div className="card-header">
+                        <span>{item.title}</span>
+                        <Icon className="card-icon" size={20} />
+                    </div>
+
+                    <h2 className="card-value">{item.value}</h2>
+                    <span className="card-sub">{item.sub}</span>
+
+                </div>
+            );
+        })}
+    </div>
+        
             {/* ===== SECTION 2: OCCUPANCY ===== */}
             <div className="chart-section">
                 <div className="card">
