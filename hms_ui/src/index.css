@@ -311,3 +311,36 @@ td{
     background-color: rgba(30, 78, 216, 0.1);
     transform: translateY(-2px);
 }
+
+/*============================ Rooms Page ====================================*/
+/*====== header section =====*/
+.rooms-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+/*====== Right controls =====*/
+.room-controls{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/*====== dropdowns =====*/
+.control-select{
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+/*====== Add button =====*/
+.add-room-btn{
+    background-color: #1e4ed8;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
