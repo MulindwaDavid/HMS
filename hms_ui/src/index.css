@@ -344,3 +344,63 @@ td{
     border-radius: 6px;
     cursor: pointer;
 }
+
+/*====== Table =====*/
+.table-section{
+    width: 100%;
+}
+
+.rooms-table{
+    
+    border-collapse: collapse;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.rooms-table th {
+    text-align: left;
+    padding: 12px;
+    background: #f3f4f6;
+}
+
+.rooms-table td {
+    padding: 12px;
+    border-bottom: #e5e7eb;
+}
+
+/* hover effect */
+.rooms-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+/*status colors */
+.status.available {
+    color: #16a34a;
+    font-weight: 500;
+}
+
+.status.occupied {
+    color: #dc2626;
+    font-weight: 500;
+}
+
+.status.maintenance {
+  color: #ca8a04;
+  font-weight: 500;
+}
+
+/* Actions */
+.action-btn {
+    margin-right: 6px;
+    padding: 4px 8px;
+    border: none;
+    background: #e5e7eb;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.action-btn:hover {
+  background: #d1d5db;
+}

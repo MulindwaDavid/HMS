@@ -1,26 +1,112 @@
-const rooms = [
-    {
-        ID: 1,
-        Room: "A1",
-        Block: "A",
-        Capacity: "single",
-        Price: 500000,
-        Status: "Available",
-    },
+import { useState } from "react";  //state controls the filter.
 
-       {
-        ID: 2,
-        Room: "B2",
-        Block: "B",
-        Capacity: "double",
-        Price: 800000,
-        Status: "Occupied",
-    },
+const rooms = [
+  {
+    id: 1,
+    block: "A",
+    roomNumber: 1,
+    capacity: "single",
+    price: 500000,
+    status: "Available",
+  },
+  {
+    id: 2,
+    block: "B",
+    roomNumber: 1,
+    capacity: "double",
+    price: 800000,
+    status: "Occupied",
+  },
+  {
+    id: 3,
+    block: "A",
+    roomNumber: 15,
+    capacity: "single",
+    price: 500000,
+    status: "Maintenance",
+  },
+  {
+    id: 4,
+    block: "C",
+    roomNumber: 1,
+    capacity: "triple",
+    price: 850000,
+    status: "Available",
+  },
+  {
+    id: 5,
+    block: "A",
+    roomNumber: 10,
+    capacity: "single",
+    price: 500000,
+    status: "Occupied",
+  },
+  {
+    id: 6,
+    block: "B",
+    roomNumber: 5,
+    capacity: "double",
+    price: 800000,
+    status: "Occupied",
+  },
+  {
+    id: 7,
+    block: "B",
+    roomNumber: 6,
+    capacity: "double",
+    price: 850000,
+    status: "Occupied",
+  },
+  {
+    id: 8,
+    block: "C",
+    roomNumber: 4,
+    capacity: "single",
+    price: 500000,
+    status: "Available",
+  },
+  {
+    id: 9,
+    block: "C",
+    roomNumber: 7,
+    capacity: "single",
+    price: 500000,
+    status: "Maintenance",
+  },
+  {
+    id: 10,
+    block: "R",
+    roomNumber: 1,
+    capacity: "single",
+    price: 500000,
+    status: "Occupied",
+  },
+  {
+    id: 11,
+    block: "R",
+    roomNumber: 11,
+    capacity: "double",
+    price: 800000,
+    status: "Maintenance",
+  },
 ];
 
+/* FORMATTING FUNCTIONS */
+function formatRoomID(block: string, num: number) {
+  return `${block}-${String(num).padStart(3, "0")}`;
+}
+
+function formatRoomName(block: string, num: number) {
+  return `${block}${num}`;
+}
 
 
 function Rooms(){
+
+    const [selectedBlock, setSelectedBlock] = useState("All");
+
+    /* Filtering Logic*/
+    const filteredRooms = selectedBlock === "All" ? rooms : rooms.filter((room) => room.block === selectedBlock);
 
     return(
         <div className="rooms-page">
@@ -42,13 +128,14 @@ function Rooms(){
                 </select>
 
                 {/* filters */}
-                <select className="control-select">
-                    <option>All blocks</option>
-                    <option>Block A</option>
-                    <option>Block B</option>
-                    <option>Block C</option>
-                    <option>Block D</option>
-                    <option>Block R</option>
+                <select className="control-select"
+                onChange={(e) => setSelectedBlock(e.target.value)}
+                >
+                    <option value= "All">All blocks</option>
+                    <option value= "A">Block A</option>
+                    <option value= "B">Block B</option>
+                    <option value= "C">Block C</option>
+                    <option value= "R">Block R</option>
                 </select>
 
                 {/* Add room button */}
@@ -62,7 +149,7 @@ function Rooms(){
 
             {/* Table */}
             <div className="tables-section">
-                <div className="rooms-table">
+                <table className="rooms-table">
                     <thead>
                         <tr>
                             <th>ID</th>
@@ -75,33 +162,34 @@ function Rooms(){
                         </tr>
                     </thead>
 
-                    <tbody>
-                        {rooms.map((rooms) => (
-                            <tr key={rooms.ID}>
+                     <tbody>
+                         {filteredRooms.map((room) => (
+                        <tr key={room.id}>
 
-                                <td>{rooms.ID}</td>
-                                <td>{rooms.Room}</td>
-                                <td>{rooms.Block}</td>
-                                <td>{rooms.Capacity}</td>
-                                
+                          {/* AUTO GENERATED ID */}
+                            <td>{formatRoomID(room.block, room.roomNumber)}</td>
 
-                                <td>{rooms.Price.toLocaleString()} UGX 
-                                </td>
+                            {/* AUTO GENERATED ROOM NAME */}
+                            <td>{formatRoomName(room.block, room.roomNumber)}</td>
 
-                                <td className={`status ${rooms.Status.toLowerCase()}`}>
-                                    {rooms.Status}
-                                </td>
+                            <td>{room.block}</td>
+                            <td>{room.capacity}</td>
 
-                                <td>
-                                    <button className="action-btn">View</button>
-                                    <button className="action-btn">Edit</button>
-                                </td>
+                            <td>{room.price.toLocaleString()} UGX</td>
 
-                            </tr>
-                        ))}
+                            <td className={`status ${room.status.toLowerCase()}`}>
+                                {room.status}
+                            </td>
 
+                            <td>
+                                <button className="action-btn">View</button>
+                                <button className="action-btn">Edit</button>
+                            </td>
+
+                        </tr>
+                    ))}
                     </tbody>
-                </div>
+                </table>
 
             </div>
         </div>
