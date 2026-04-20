@@ -47,7 +47,9 @@ function Overview(){
   
     return(
         <div className="overview">
-
+            <div className="top_section">
+                <h3>Overview</h3>
+            </div>
             {/* ===== SECTION 1: STATS SECTION ===== */}
 
               <div className="stats-section">

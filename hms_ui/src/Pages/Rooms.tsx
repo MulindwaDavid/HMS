@@ -1,6 +1,18 @@
-import { useState } from "react";  //state controls the filter.
+import React, { useState } from "react";  //state controls the filter.
 
-const rooms = [
+
+/* FORMATTING FUNCTIONS */
+function formatRoomID(block: string, num: number) {
+  return `${block}-${String(num).padStart(3, "0")}`;
+}
+
+function formatRoomName(block: string, num: number) {
+  return `${block}${num}`;
+}
+
+
+function Rooms(){
+  const [rooms, setRooms]= useState([
   {
     id: 1,
     block: "A",
@@ -89,24 +101,68 @@ const rooms = [
     price: 800000,
     status: "Maintenance",
   },
-];
+]);
 
-/* FORMATTING FUNCTIONS */
-function formatRoomID(block: string, num: number) {
-  return `${block}-${String(num).padStart(3, "0")}`;
-}
-
-function formatRoomName(block: string, num: number) {
-  return `${block}${num}`;
-}
-
-
-function Rooms(){
-
+    /*Filter state */
     const [selectedBlock, setSelectedBlock] = useState("All");
+
+    const [showForm, setShowForm] = useState(false);
 
     /* Filtering Logic*/
     const filteredRooms = selectedBlock === "All" ? rooms : rooms.filter((room) => room.block === selectedBlock);
+
+    /*FORM STATE :This captures input*/
+    const [formData, setFormData] = 
+    useState({
+      block: "",
+      roomNumber: "",
+      capacity: "",
+      price: "",
+      status: "",
+      
+    });
+
+    /*Form logic: Handle input changes*/
+    function handleChange (e:
+      React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+    ) {
+      const {name, value } = e.target;
+
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
+
+    /*Form submission */
+    function handleSubmission (e: React.FormEvent) {
+      e.preventDefault();
+
+      const newRoom = {
+        id: rooms.length + 1,
+        block: formData.block,
+        roomNumber: Number(formData.roomNumber),
+        capacity: formData.capacity,
+        price: Number(formData.price),
+        status: formData.status,
+      };
+
+      /*Visibility form */
+      
+
+      setRooms([...rooms, newRoom]); //updates table
+      setShowForm(false);  //close modal
+
+      //reset form
+      setFormData({
+        block: "",
+        roomNumber: "",
+        capacity: "",
+        price: "",
+        status: "",
+      });
+    }
+
 
     return(
         <div className="rooms-page">
@@ -115,7 +171,7 @@ function Rooms(){
             <div className="rooms-header">
 
                 {/*LEFT: Title */}
-                <h2>Rooms</h2>
+                <h3>Rooms</h3>
 
                 {/*RIGHT: controls */}
                 <div className="room-controls">
@@ -139,7 +195,9 @@ function Rooms(){
                 </select>
 
                 {/* Add room button */}
-                <button className="add-room-btn">
+                <button className="add-room-btn"
+                onClick={() => setShowForm(true)}
+                >
                     + Add Room
                 </button>
 
@@ -191,6 +249,65 @@ function Rooms(){
                     </tbody>
                 </table>
 
+                {showForm &&(
+                  <div className="modal-overlay">
+                    <div className="modal">
+
+                      <h2>Add New Room</h2>
+
+                      <form onSubmit={handleSubmission} className="room-form">
+                        <select name="block" value={formData.block} onChange={handleChange}>
+                          <option value="">select block</option>
+                          <option value="A">Block A</option>
+                          <option value="B">Block B</option>
+                          <option value="C">Block C</option>
+                          <option value="R">Block R</option>
+                        </select>
+
+                          <input 
+                          type="number" 
+                          name="roomNumber"
+                          placeholder="Room Number"
+                          value={formData.roomNumber}
+                          onChange={handleChange}
+                          />
+                                                
+                        <select name="capacity" value={formData.capacity} onChange={handleChange}>
+                          <option value="">Capacity</option>
+                          <option value="single">Single</option>
+                          <option value="double">Double</option>
+                          <option value="triple">Triple</option>
+                        </select>
+
+                          <input 
+                          type="number"
+                          name="price"
+                          placeholder="Price"
+                          value={formData.price}
+                          onChange={handleChange}
+                           />
+
+                        <select name="status" value={formData.status} onChange={handleChange}>
+                          <option value="">Status</option>
+                          <option value="available">Available</option>
+                          <option value="occupied">Occupied</option>
+                          <option value="maintenance">Maintenance</option>
+                        </select>
+
+                        <div className="form-actions">
+                          <button type="submit">
+                            Save
+                          </button>
+
+                          <button type="button" onClick={() => setShowForm(false)}>Cancel</button>
+                        </div>
+                          
+                        
+                      </form>
+                    </div>
+                  </div>
+                )}
+
             </div>
         </div>
         
@@ -199,3 +316,4 @@ function Rooms(){
 }
 
 export default Rooms
+
