@@ -404,3 +404,81 @@ td{
 .action-btn:hover {
   background: #d1d5db;
 }
+
+/*====== Form =====*/
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5); /* dark shadow background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-card {
+  background: white;
+  padding: 20px;
+  width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+
+/*==================================================Tenannts Page ==============================================*/
+.tenants-page{
+    padding: 20px;
+}
+
+.tenants-header{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.tenant-controls{
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+}
+
+.tenants-table{
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    background: white;
+}
+
+.tenants-table thead th{
+    padding: 12px;
+    text-align: left;
+    background: #f3f4f6;
+}
+.tenants-table td{
+    padding: 10px;
+    text-align: left;
+    border-bottom: #e5e7eb;
+}
