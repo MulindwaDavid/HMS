@@ -90,7 +90,7 @@ function Overview(){
                 <div className="card">
                     <h2>Tenant List</h2>
 
-                    <table>
+                    <table className="overview-table">
                         <thead>
                             <tr>
                                 <th>Name</th>

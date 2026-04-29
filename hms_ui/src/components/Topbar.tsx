@@ -7,12 +7,6 @@ function Topbar() {
     return(
         <div className="topbar">     
 
-            {/*CENTER: Search */}
-
-            <div className="topbar-center">
-                <input type="text" placeholder="Search..." />
-            </div>
-
             {/*RIGHT: Icons */}
             <div className="topbar-right">
                 <MdNotifications size={20} />

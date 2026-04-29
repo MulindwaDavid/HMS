@@ -4,7 +4,20 @@ function Payments(){
 
 
     return(
-        <h2>Payments</h2>
+        <div className="payments-section">
+
+            <div className="top-section">
+                <h3>Payments</h3>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
     );
 
 }

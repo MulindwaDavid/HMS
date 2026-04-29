@@ -172,12 +172,13 @@ function Tenants(){
                         <th>ID</th>
                         <th>Name</th>
                         <th>Phone</th>
-                        <th>Email</th>
+                        
                         <th>Room</th>
                         <th>Date In</th>
                         <th>Date Out</th>
+                        <th>Email</th>
                         <th>Status</th>
-                        <th>Actions</th>
+                        
                     </tr>
                 </thead>
 
@@ -191,17 +192,14 @@ function Tenants(){
                             {/*Full name*/}
                             <td>{tenants.firstName} {tenants.lastName}</td>
                             <td>{tenants.phone}</td>
-                            <td>{tenants.email}</td>
                             <td>{tenants.room}</td>
                             <td>{tenants.dateIn}</td>
                             <td>{tenants.dateOut}</td>
+                            <td>{tenants.email}</td>
                             
                             <td className={`status ${tenants.status.toLowerCase()}`}>{tenants.status}</td>
 
-                            <td>
-                                <button className="action-btn">View</button>
-                                <button className="action-btn">Edit</button>
-                            </td>
+                           
 
                         </tr>
                     ))}
